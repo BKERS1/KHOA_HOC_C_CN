@@ -1,0 +1,9 @@
+Bài 1: Xây dựng hàm. tính tổng các giá trị trong mảng arr
+Bai 2: tinh trung binh cong cac so le trong mang
+Bai 3: In ra cac vi tri cua so lon nhat trong mang
+Bai 4: Thay the cac so am trong mang bang 0
+Bài 5: Xây dụng hàm. in ra các giá trị LẼ trong mảng arr
+Bài 6: Xây dụng hàm. in ra các giá trị là số nguyên tố trong mảng arr
+Bài 7: Xây dựng hàm. in ra giá trị lớn nhất trong mảng arr
+Bai 8: Viet Ham Hoan Vi 2 so nguyen
+Bài 9: Xây dựng hàm. Sắp xếp mảng arr theo giá trị tăng dần

@@ -1,0 +1,243 @@
+Bài 1: viết chương trình tìm max của 2 số a và b
+Giải thích: nhập vào 2 số nguyên a và b, in ra số lớn nhất của 2 số này
+
+#include<stdio.h>
+
+void main(){
+	int a,b,max;
+	printf("a=");
+	scanf("%d", &a);
+	printf("b=");
+	scanf("%d", &b);
+	if (a > b) { max = a; }
+	else if (b > a) { max = b; }
+	else { max = a; }
+	printf("Số lớn nhất của 2 số a và b là: %d", max);
+	return 0;
+}
+
+Bài 2: viết chương trình tìm max của 3 số a, b và c
+Giải thích: nhập vào 3 số nguyên a, b, c in ra số lớn nhất của 3 số này.
+
+#include<stdio.h>
+
+void main(){
+	int a,b,c,max;
+	printf("a=");
+	scanf("%d", &a);
+	printf("b=");
+	scanf("%d", &b);
+	printf("c=");
+	scanf("%d", &c);
+	if (a > b && a>c) { 
+		max = a; 
+	}
+	else if (b > a && b>c) {
+		max = b; 
+	}
+	else { 
+		max = c; 
+	}
+	printf("Số lớn nhất của 3 số a,b và c là: %d", max);
+	}
+
+Bài 3: Viết chương trình giải phương trình bậc 2 có dạng ax^2 + bx + c = 0
+Giải thích: nhập vào a, b, c. in ra x1, x2 NẾU phương trình có 2 nghiệm phân biệt, in ra x nếu phương trình có nghiệm kép, và phương trình vô nghiệm nếu delta  < 0
+
+#include <stdio.h>
+#include <math.h>
+
+void main()
+{
+	int a = 1;
+	int b = 4;
+	int c = 3;
+	float denlta = 0;
+	denlta = b * b - 4 * a * c;
+	if (denlta > 0) {
+		float x1 = (-b + sqrt(denlta)) / (2 * a);
+		float x2 = (-b - sqrt(denlta)) / (2 * a);
+		printf("x1=%.2f,x2=%.2f", x1, x2);
+	}
+	else if (denlta == 0) {
+		float x = (-b) / (2.0 * a);
+		printf("x=%.2f", x);
+
+	}
+	else {
+		printf("x vo nghiem");
+	}
+}
+
+Bài 4: Kiểm tra số nhập vào số âm hay dương
+Giải thích: nhập vào số nguyên khác 0 từ bàn phím. kiểm trâ số này là số âm hay dương ( nhỏ hơn 0 hay lơn hơn 0)
+
+#include <stdio.h>
+
+void main()
+{
+	int a;
+	printf("Nhập số nguyên khác 0: ");
+	scanf("%d", &a);
+	while (a == 0) {
+		printf("Nhập số nguyên khác 0: ");
+		scanf("%d", &a);
+	}
+	if(a>0)
+	{
+		printf("%d là số dương", a);
+	}
+	else if (a < 0)
+	{
+		printf("%d là số âm", a);
+	}
+}
+
+Bài 5: Kiểm tra số nhập vào là số chẳn hay số lẽ
+Giải thích: Nhập vào số nguyên n từ bàn phím, in ra màn hình "so nay la so LE" nếu số n là số lẽ, ngược lại "so nay la so CHAN"
+
+#include <stdio.h>
+#include<math.h>
+void main()
+{
+	int a;
+	printf("a= ");
+	scanf("%d", &a);
+	if(a%2==0)
+	{
+		printf("so nay la so CHAN");
+	}
+	else
+	{
+		printf("so nay la so LE");
+	}
+}
+
+Bài 6: xếp loại học sinh dựa vào điểm trung bình
+Giải thích: nhập vào số thực từ bàn phím. in ra loại của học sinh này dựa vào điểm trung bình:
+Giỏi >= 8.0
+8.0 > Khá >= 6.5
+6.5 > Trung Bình >= 5.0
+5.0 < Yếu 
+
+#include <stdio.h>
+
+void main()
+{
+	float a;
+	printf("a= ");
+	scanf("%f" , &a);
+	if(a>=8)
+	{
+		printf("GIOI");
+	}
+	else if(a<8 && a>=6.5)
+	{
+		printf("KHA");
+	}
+	else if (a < 6.5 && a >= 5)
+	{
+		printf("TRUNG BINH");
+	}
+	else
+	{
+		printf("YEU");
+	}
+}
+Bài 7: tính tiền điện dựa vào số KWh sử dụng
+Giải thích: nhập vào số nguyên số KWh sử dụng, dựa vào bản giá điện tính số tiền phải trả:
+Bậc 1: Cho kWh từ 0 - 50  --> 1.678 VND/1KWh
+Bậc 2: Cho kWh từ 51 - 100 --> 1.734 VND/1KWh
+Bậc 3: Cho kWh từ 101 - 200 --> 2.014 VND/1KWh
+Bậc 4: Cho kWh từ 201 - 300 --> 2.536 VND/1KWh
+Bậc 5: Cho kWh từ 301 - 400 --> 2.834 VND/1KWh
+Bậc 6: Cho kWh từ 401 trở lên --> 2.927 VND/1KWh
+
+#include <stdio.h>
+#include<math.h>
+
+void main()
+{
+	int a;
+	float bill;
+	printf("a= ");
+	scanf("%d", &a);
+	while (a < 0)
+	{
+		printf("a phai lon hon 0: a= ");
+		scanf("%d", &a);
+	}
+	if (a <= 50)
+	{
+		bill = 1.678 * a;
+	}
+	else if (a <= 100)
+	{
+		bill = (1.678 * 50) + (a - 50) * 1.734;
+	}
+	else if (a <= 200)
+	{
+		bill = (1.678 * 50) + (50 * 1.734) + (a - 100) * 2.014;
+	}
+	else if (a <= 300)
+	{
+		bill = (1.678 * 50) + (50 * 1.734) + (100 * 2.014) + (a - 200) * 2.536;
+	}
+	else if (a <= 400)
+	{
+		bill = (1.678 * 50) + (50 * 1.734) + (100 * 2.014) + (100 * 2.536) + (a - 300) * 2.834;
+	}
+	else
+	{
+		bill = (1.678 * 50) + (50 * 1.734) + (100 * 2.014) + (100 * 2.536) + (100 * 2.834) + (a - 400) * 2.927;
+	}
+	printf("Tien dien phai tra: %f", bill);
+}
+
+Bài 8: Tính thuế thu nhập cá nhân 
+Giải thích: nhập vào lương, tính tiền thuế trên mức lương được nhập vào.
+
+#include <stdio.h>
+#include<math.h>
+
+void main()
+{
+	float TNCN,thue;
+	printf("Nhap muc thu thap ca nhan (trieu dong): ");
+	scanf("%f",&TNCN);
+	while (TNCN < 0)
+	{
+		printf("Muc thu thap ca nhan phai lon hon 0:  ");
+		scanf("%f", &TNCN);
+	}
+	if (TNCN <= 5)
+	{
+		thue = TNCN * 0.05;
+	}
+	else if (TNCN <= 10)
+	{
+		thue = TNCN * 0.1 - 0.25;
+	}
+	else if (TNCN <= 18)
+	{
+		thue = TNCN * 0.15 - 0.75;
+	}
+	else if (TNCN <= 32)
+	{
+		thue = TNCN * 0.2 - 1.65;
+	}
+	else if (TNCN <= 52)
+	{
+		thue = TNCN * 0.25 - 3.25;
+	}
+	else if (TNCN <= 80)
+	{
+		thue = TNCN * 0.3 - 5.85;
+	}
+	else 
+	{
+		thue = TNCN * 0.35 - 9.85;
+	}
+	printf("Thue thu nhap ca nhan la: %f", thue);
+	printf(" (trieu dong)");
+}

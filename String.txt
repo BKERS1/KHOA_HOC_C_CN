@@ -1,0 +1,11 @@
+Bài 1: Xây dụng hàm. dùng để điếm số ký tự trong chuỗi
+
+Bài 2: Xây dựng hàm. dùng để điếm có bao nhiêu ký tự space (dấu cách) trong chuỗi
+Bài 3: Xây dụng hàm, dùng để chuyễn chữ thường thành chư IN HOA
+VD: chuyển "Xin Chao moi nguoi ^%$" -> "XIN CHAO MOI NGUOI ^%$"
+Bài 4: Xây dựng hàm. dùng để điếm số từ (word) trong chuỗi
+	VD: char* str1 = "     this is     a    string    "; return to 4
+Bài 5: Xây dụng hàm. dùng để in hoa chữ cái đầu tiên của từ trong chuỗi str
+"nguyen van a" -> "Nguyen Van A"
+Bài 6: Xây dựng hàm. dùng để tìm ký tự c trong chuỗi str. hàm trả về địa chỉ của ký tự c trong chuỗi str
+bài 7: Xây dựng hàm. dùng để tìm chuỗi subStr trong chuỗi str. hàm trả về địa chỉ bất đầu của subStr trong chuỗi str
