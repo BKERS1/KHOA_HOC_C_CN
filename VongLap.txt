@@ -2,28 +2,258 @@
 cho số tự nhiên n nhập từ bàn phím hãy viết chương trình in ra tổng của n số tự nhiêu đầu tiên sử dụng vòng lặp
 1.1: chi cong so chan
 
+# include <stdio.h>
+# include <math.h>
+//tính tổng của n số nguyên đầu tiên,
+//cho số tự nhiên n nhập từ bàn phím hãy viết chương trình in ra tổng của n số tự nhiêu đầu tiên sử dụng vòng lặp
+//1.1: chi cong so chan
+
+void main()
+{
+	int n;
+	int tong = 0;
+	printf("Nhap so luong so nguyen: ");
+	scanf("%d", &n);
+	for (int i = 0; i < n; i++)
+	{
+		if( i % 2 == 0)
+		tong = tong + i;
+	}
+	printf("tong %d so nguyen dau la: %d", n, tong);
+}
+
 2. Tính giai thừa của một số tự nhiên
 Cho một số tự nhiên n nhập từ bàn phím, viết chương trình in ra màn hình giai thừa của số vừa nhập có sử dụng vòng lặp.
+
+
+# include <stdio.h>
+# include <math.h>
+
+void main()
+{
+	int n;
+	int giaithua = 1;
+	printf("Nhap so luong so nguyen: ");
+	scanf("%d", &n);
+	for (int i = 1; i <= n; i++)
+	{
+		giaithua = giaithua * i;
+	}
+	printf("giai thua %d so nguyen dau la: %d", n, giaithua);
+}
 
 3. Nhập số vào màn hình cho đến khi nhập số 0 thì dừng
 Đề bài: Nhập vào một số cho đến khi ta nhập số 0 thì dừng chương trình.
 3.1: neu nhap sai qua 5 thi thoat chuong trinh
 
+# include <stdio.h>
+# include <math.h>
+
+void main()
+{
+	int n;
+	int so_lan_nhap = 0;
+	do
+	{
+		so_lan_nhap++;
+		printf("Nhap so 0: ");
+		scanf("%d",&n);
+		if (so_lan_nhap == 5) break;
+	} while (n != 0);
+	printf("Nhap so 0 %s\r\n", (n == 0 )? "Thanh cong" : "That bai");
+}
+
 4. Viet chuong trinh in ra man hinh console ban cuu chuong.
+
+# include <stdio.h>
+# include <math.h>
+
+void main()
+{
+	int n,a,tich;
+	for (int i = 2; i <= 9; i++)
+	{
+		for (int j = 1; j <= 9; j++)
+		{
+			tich = i * j;
+			printf("%d x %d = %d \r\n", i, j, tich);
+		}
+		printf("\r\n");
+	}
+	
+}
+
 
 4. Tính tiền gửi ngân hàng sau n năm
 Đề bài: Nhập vào số tiền gửi ban đầu, tiền lãi mỗi năm và số năm gửi tiền hãy tính số tiền nhận được sau n năm (biết lãi tính theo hình thức lãi kép). Biết lãi hiện tại của Viettinbank là 8.2%/năm
 
+#include<stdio.h>
+#include<math.h>
+
+float Gui_Ngan_Hang (float tien_gui,int n)
+{
+    float tien_nhan=tien_gui;
+    for (int i=1; i<=n;i++)
+    {
+        tien_nhan += tien_nhan*0.082;
+    }
+    return tien_nhan;
+}
+
+int main()
+{
+    float tien_gui;
+    int n;
+    scanf("%f",&tien_gui);
+    scanf("%d",&n);
+    float result = Gui_Ngan_Hang(tien_gui,n);
+    printf("Vậy số tiền nhận được sau %d năm là: %f ",n,result);
+    return 0;
+}
+
 5. In ra các số nguyên tố nhỏ hơn n
 Đề bài: Nhập vào một số tự nhiên n bất kì, in ra màn hình các số nguyên tố nhỏ hơn n theo thứ tự tăng dần (sử dụng vòng lặp)
+
+# include <stdio.h>
+# include <math.h>
+
+//In ra các số nguyên tố nhỏ hơn n
+//Đề bài : Nhập vào một số tự nhiên n bất kì, in ra màn hình các số nguyên tố nhỏ hơn n
+//theo thứ tự tăng dần(sử dụng vòng lặp)
+
+int SoNguyenTo(int n)
+{
+	if (n < 2) {
+		return 0;
+	}
+	for (int i = 2; i < n; i++) {
+		if (n % i == 0) {
+			return 0;
+		}
+	}
+	return 1;
+}
+
+int Day_nt_nhohon_n(int n)
+{
+	for (int i = 2; i <n; i++)
+	{
+		if (SoNguyenTo(i))
+		{
+			printf("%d\r\n", i);
+		}
+	}
+}
+
+
+void main()
+{
+	int n;
+	scanf("%d", &n);
+	Day_nt_nhohon_n(n);
+}
 
 6. Viết chương trình tìm ước số chung lớn nhất của 2 số nguyên
 Đề bài: Nhập vào 2 số nguyên A, B. in ra màn hình ước số chung lớn nhất của A và B
 
+#include<stdio.h>
+#include<math.h>
+
+void main()
+{
+	int a, b,UCLN;
+	printf("Nhap so nguyen a: a= ");
+	scanf("%d", &a);
+	printf("Nhap so nguyen b: b= ");
+	scanf("%d", &b);
+	for (int i = 1; i < a; i++)
+	{
+		if (a % i == 0 && b % i == 0)
+		{
+			UCLN = i;
+		}
+	}
+	printf("Uoc chung lon nhat cua %d va %d la: %d ", a, b, UCLN);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 7. Viết chương trình tính tích phân của f(x) = x^2. từ a đến b theo phương pháp hình than với tần số lấy mẫu 1000 lần
 Đề bài: Nhập vào 2 số nguyên a, b. in ra màn hình kết quả của tích phân hàm f(x) trong khoảng từ a đến b.
 
+#include<stdio.h>
+#include<math.h>
+
+//Viết chương trình tính tích phân của f(x) = x ^ 2. từ a đến b theo phương pháp hình than với 
+//tần số lấy mẫu 1000 lần
+//Đề bài : Nhập vào 2 số nguyên a, b.in ra màn hình kết quả của tích phân hàm f(x) 
+//trong khoảng từ a đến b.
+
+void main()
+{
+	int a, b;
+	float S = 0.0f;
+	float h ;
+	float height;
+	printf("a= ");
+	scanf("%d", &a);
+	printf("b= ");
+	scanf("%d", &b);
+	h = (b - a) / 1000.0f;
+	for (int i = 0; i < 1000; i++)
+	{
+		height = a + i * h;
+		S += 0.5f * (pow(height, 2) + pow(height +h, 2)) * h;
+	}
+	printf("%f ", S);
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 8. Viết chương trình tính thuế thu nhập cá nhân.
+
+#include <stdio.h>
+#include<math.h>
+
+void main()
+{
+	float TNCN,thue;
+	printf("Nhap muc thu thap ca nhan (trieu dong): ");
+	scanf("%f",&TNCN);
+	while (TNCN < 0)
+	{
+		printf("Muc thu thap ca nhan phai lon hon 0:  ");
+		scanf("%f", &TNCN);
+	}
+	if (TNCN <= 5)
+	{
+		thue = TNCN * 0.05;
+	}
+	else if (TNCN <= 10)
+	{
+		thue = TNCN * 0.1 - 0.25;
+	}
+	else if (TNCN <= 18)
+	{
+		thue = TNCN * 0.15 - 0.75;
+	}
+	else if (TNCN <= 32)
+	{
+		thue = TNCN * 0.2 - 1.65;
+	}
+	else if (TNCN <= 52)
+	{
+		thue = TNCN * 0.25 - 3.25;
+	}
+	else if (TNCN <= 80)
+	{
+		thue = TNCN * 0.3 - 5.85;
+	}
+	else 
+	{
+		thue = TNCN * 0.35 - 9.85;
+	}
+	printf("Thue thu nhap ca nhan la: %f", thue);
+	printf(" (trieu dong)");
+}
+
 
 9. Viết chương trình mô phỏng việc trả tiền của máy ATM.
 số tiền nhập vào phải là bội số của 50000. số tiền phải trả về đầy đủ các mệnh giá từ 50000 đến 500000
@@ -35,5 +265,178 @@ In ra:
 1 x 200000
 1 x 500000
 
+#include <stdio.h>
+#include <math.h>
+
+
+int RutTien(int so_tien)
+{
+	int so_to_50k = 0;
+	int so_to_100k = 0;
+	int so_to_200k = 0;
+	int so_to_500k = 0;
+
+	printf("Nhap so tien muon rut: ");
+	scanf("%d", &so_tien);
+	while (so_tien % 50 != 0)
+	{
+		printf("So tien rut phai la boi so cua 50: ");
+		scanf("%d", &so_tien);
+	}
+
+	int buoc = 0;
+	switch (buoc)
+	{
+	case 0: 
+		if (so_tien > 50)
+		{
+			so_to_50k++;
+			so_tien -= 50;
+			buoc = 1;
+		}
+		else
+		{
+			return;
+		}
+	break;
+
+	case 1:
+			if (so_tien > 100)
+			{
+				so_to_100k++;
+				so_tien -= 100;
+				buoc = 2;
+			}
+			else
+			{
+				buoc = 0;
+			}
+	break;
+	case 2:
+		if (so_tien > 200)
+		{
+			so_to_200k++;
+			so_tien -= 200;
+			buoc = 3;
+		}
+		else
+		{
+			buoc = 1;
+		}
+		break;
+	case 3:
+		if (so_tien > 500)
+		{
+			so_to_500k++;
+			so_tien -= 500;
+			buoc = 0;
+		}
+		else
+		{
+			buoc = 2;
+		}
+		break;
+	}
+	printf("%d x 50k", so_to_50k);
+	printf("%d x 100k", so_to_100k);
+	printf("%d x 200k", so_to_200k);
+	printf("%d x 500k", so_to_500k);
+
+}
+
+void main()
+{
+	int so_tien;
+	int result = RutTien(so_tien);
+	printf("%d", result);
+}
 10. viết chương trình in ra cách đọc số bằng chữ.
 VD: nhập vào 1234 in ra "mot ngan hai tram ba muoi bon"
+
+#include <stdio.h>
+# include <math.h>
+
+void __DocSo(int so)
+{
+	switch (so)
+	{
+	case 0:
+		printf("khong ");
+		break;
+	case 1:
+		printf("mot ");
+		break;
+	case 2:
+		printf("hai ");
+		break;
+	case 3:
+		printf("ba ");
+		break;
+	case 4:
+		printf("bon ");
+		break;
+	case 5:
+		printf("nam ");
+		break;
+	case 6:
+		printf("sau ");
+		break;
+	case 7:
+		printf("bay ");
+		break;
+	case 8:
+		printf("tam ");
+		break;
+	case 9:
+		printf("chin ");
+		break;
+	}
+}
+void __DocDonVi(int don_vi)
+{
+	switch (don_vi)
+	{
+	case 0:
+		break;
+	case 1:
+	case 4:
+		printf("muoi ");
+		break;
+	case 2:
+	case 5:
+		printf("tram ");
+		break;
+	case 3:
+		printf("ngan ");
+		break;
+	case 6:
+		printf("ti ");
+		break;
+	}
+}
+void DocChuSo(int so)
+{
+	int do_vi_cao_nhat = 0;
+
+	while (so / (int)(pow(10, do_vi_cao_nhat)) != 0)
+	{
+		do_vi_cao_nhat++;
+	}
+	do_vi_cao_nhat--;
+
+	int so_can_doc = 0;
+	for (int i = do_vi_cao_nhat; i >= 0; i--)
+	{
+		so_can_doc = so / (pow(10, i));
+		so -= so_can_doc * (pow(10, i));
+		__DocSo(so_can_doc);
+		__DocDonVi(i);
+	}
+}
+
+void main()
+{
+    int num;
+    scanf("%d",&num);
+    DocChuSo(num);
+}
