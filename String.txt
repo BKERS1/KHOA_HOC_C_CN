@@ -1,11 +1,201 @@
 Bài 1: Xây dụng hàm. dùng để điếm số ký tự trong chuỗi
 
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+//Bài 1: Xây dụng hàm. dùng để điếm số ký tự trong chuỗi
+// Input: Chuỗi (char*)
+// Output: Số kí tự trong chuỗi (int)
+
+int SoKiTu(char* px)
+{
+	int count = 0;
+	while (px[count] != 0)
+	{
+		count++;
+	}
+	return count;
+}
+
+int a_main()
+{
+	char str_1[] = "abc3456789";
+	int result = SoKiTu(str_1);
+
+	printf("So ki tu cua chuoi la: %d\r\n", result);
+	return 0;
+}
+
+
+
 Bài 2: Xây dựng hàm. dùng để điếm có bao nhiêu ký tự space (dấu cách) trong chuỗi
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+// Bài 2: Xây dựng hàm. dùng để điếm có bao nhiêu ký tự space (dấu cách) trong chuỗi
+// Input: Chuỗi (char*)
+// Output: Số kí tự SPACE trong chuỗi (int)
+
+int SoKiTuSP(char* px)
+{
+	int count = 0;
+	int SokituSPACE = 0;
+	while (px[count] != 0)
+	{
+		if (px[count] == ' ') { SokituSPACE++; }
+		count++;
+	}
+	return SokituSPACE;
+}
+
+int b_main()
+{
+	char str_1[] = "abc  345  6 789";
+	int result = SoKiTuSP(str_1);
+
+	printf("So ki tu SPACE cua chuoi la: %d\r\n", result);
+	return 0;
+}
+
+
 Bài 3: Xây dụng hàm, dùng để chuyễn chữ thường thành chư IN HOA
 VD: chuyển "Xin Chao moi nguoi ^%$" -> "XIN CHAO MOI NGUOI ^%$"
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+// Bài 3: Xây d?ng hàm, dùng ?? chuy?n ch? th??ng thành ch? IN HOA
+// Input: Chu?i ---> (char*)
+// Output: Chu?i ?ã in hoa --> (char)
+
+int VietHoa(char* px)
+{
+	int count = 0;
+	while (px[count] != 0)
+	{
+		if (px[count] >= 'a' && px[count] <= 'z')
+		{
+			px[count] -= 32;
+		}
+		count++;
+	}
+}
+
+int c_main()
+{
+	char str_1[] = "abc  345  def 789";
+	VietHoa(str_1); // không c?n gán
+
+	printf("Chuoi sau khi da viet HOA: %s\r\n", str_1);
+	return 0;
+}
+
+
 Bài 4: Xây dựng hàm. dùng để điếm số từ (word) trong chuỗi
 	VD: char* str1 = "     this is     a    string    "; return to 4
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+// Bài 4: Xây dựng hàm. dùng để điếm số từ (word) trong chuỗi
+// Input: Chuỗi ---> (char*)
+// Output: Số từ trong chuỗi --> (return int)
+
+int DemTuTrongChuoi(char* px)
+{
+	int count = 0;
+	int TutrongChuoi = 1;
+	while (px[count] != 0)
+	{
+		if (px[count] == ' ' && px[count+1] != ' ')
+		{
+			TutrongChuoi++;
+		}
+		count++;
+	}
+	return TutrongChuoi;
+}
+
+int d_main()
+{
+	char str_1[] = "abc  345  def 789     dfgjdk";
+	int result = DemTuTrongChuoi(str_1); 
+
+	printf("So tu trong chuoi nay la: %d\r\n", result);
+	return 0;
+}
+
 Bài 5: Xây dụng hàm. dùng để in hoa chữ cái đầu tiên của từ trong chuỗi str
 "nguyen van a" -> "Nguyen Van A"
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+// Bài 5: Xây dụng hàm. dùng để in hoa chữ cái đầu tiên của từ trong chuỗi str
+// Input: Chuỗi ---> (char*)
+// Output: Chuỗi đã viết HOA chữ đầu 
+
+int VietHoaChuDau(char* px)
+{
+	int count = 0;
+	if (px[0] != ' ' && px[count] >= 'a' && px[count] <= 'z') 
+	{ 
+		px[0] -= 32; 
+	}
+	while (px[count] != 0)
+	{
+		if ( px[count] >= 'a' && px[count] <= 'z' && px[count - 1] == ' ')
+		{
+			px[count]-=32;
+		}
+		count++;
+	}
+}
+
+int e_main()
+{
+	char str_1[] = "abc  345  def 789     dfgjdk";
+	VietHoaChuDau(str_1);
+
+	printf("Chuoi sau khi da viet hoa chu dau: %s\r\n", str_1);
+	return 0;
+}
+
+
 Bài 6: Xây dựng hàm. dùng để tìm ký tự c trong chuỗi str. hàm trả về địa chỉ của ký tự c trong chuỗi str
-bài 7: Xây dựng hàm. dùng để tìm chuỗi subStr trong chuỗi str. hàm trả về địa chỉ bất đầu của subStr trong chuỗi str
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+//Bài 6: Xây dựng hàm. dùng để tìm ký tự c trong chuỗi str. hàm trả về địa chỉ của ký tự c trong chuỗi str
+// Input: Chuỗi, kí tự---> (char*, char)
+// Output: DIA CHI kí tự cần tìm --> (char*)
+
+char* DiaChiKiTu(char* px, char kitu)
+{
+	int count = 0;
+	while (px[count] != 0)
+	{
+		if (kitu == px[count])
+		{
+			return &(*(px + count));
+			//return &px[count];
+		}
+		count++;
+	}
+	return NULL;
+}
+
+int f_main()
+{
+	char str_1[] = "a  b";
+	char* result = DiaChiKiTu(str_1,'b');
+
+	printf("Dia chi cua ki tu can tim: 0x%p\r\n", result);
+	return 0;
+}
+
+
+Bài 7: Xây dựng hàm. dùng để tìm chuỗi subStr trong chuỗi str. hàm trả về địa chỉ bất đầu của subStr trong chuỗi str
