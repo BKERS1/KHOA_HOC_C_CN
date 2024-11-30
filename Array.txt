@@ -1,9 +1,282 @@
 Bài 1: Xây dựng hàm. tính tổng các giá trị trong mảng arr
+
+CÁCH 1:
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+
+int SumArr(int Arr[], int So_Luong)
+{
+	int Sum = 0;
+	for (int i = 0; i < So_Luong;i++)
+	{
+		Sum += Arr[i];
+	}
+	return Sum;
+}
+
+int main()
+{
+	int Arr[] = { 2,3,5 };
+	int So_Luong = sizeof(Arr) / sizeof(Arr[0]);
+	int result = SumArr(Arr,So_Luong);
+
+	printf("Tong cac gia tri trong mang là: %d\r\n", result);
+	return 0;
+}
+
+CÁCH 2:
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+
+int SumArr(int* dia_chi_Arr, int So_Luong)
+{
+	int Sum = 0;
+	for (int i = 0; i < So_Luong; i++)
+	{
+		Sum += *(dia_chi_Arr + i);
+	}
+	return Sum;
+}
+
+int main()
+{
+	int Arr[] = { 2,3,6 };
+	int So_Luong = sizeof(Arr) / sizeof(Arr[0]);
+	int result = SumArr(Arr,So_Luong);
+
+	printf("Tong cac gia tri trong mang là: %d\r\n", result);
+	return 0;
+}
+
+
 Bai 2: tinh trung binh cong cac so le trong mang
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+
+//Bai 2: tinh trung binh cong cac so le trong mang
+
+float SumArr(int* dia_chi_Arr, int So_Luong)
+{
+	int Sum_So_Le = 0;
+	int So_Luong_So_Le = 0;
+
+	for (int i = 0; i < So_Luong; i++)
+	{
+	
+		if (*(dia_chi_Arr + i) % 2 != 0)
+		{
+			Sum_So_Le += *(dia_chi_Arr + i);
+			So_Luong_So_Le++;
+		}
+
+	}
+	if (So_Luong_So_Le == 0) { return 0; }///ko có dòng này sẽ bị lỗi
+	return (float)Sum_So_Le / So_Luong_So_Le;
+}
+
+int main()
+{
+	int Arr[] = { 4,3,5,5,9 };
+	int So_Luong = sizeof(Arr) / sizeof(Arr[0]);
+	float result = SumArr(Arr,So_Luong);
+
+	printf("Trung binh cong cac gia tri trong mang là: %.2f\r\n", result);
+	return 0;
+}
+
 Bai 3: In ra cac vi tri cua so lon nhat trong mang
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+
+int So_Lon_Nhat_Mang(int* dia_chi_mang, int So_Luong, int* Vi_Tri_Max)
+{
+	int Max = 0;
+	for (int i = 0; i < So_Luong; i++)
+	{
+		if (*(dia_chi_mang + i) > Max)
+		{
+			Max = *(dia_chi_mang + i);
+			*Vi_Tri_Max = i;
+		}
+	}
+	return Max;
+}
+
+int main()
+{
+	int Arr[] = { 400,3,10,5,90,800 };
+	int So_Luong = sizeof(Arr) / sizeof(Arr[0]);
+	int Vi_Tri_Max;
+	int result = So_Lon_Nhat_Mang(Arr,So_Luong,&Vi_Tri_Max);
+
+	printf("Gia tri lon nhat trong mang la: %d, o vi tri thu: %d \r\n", result, Vi_Tri_Max);
+	return 0;
+}
+
+
 Bai 4: Thay the cac so am trong mang bang 0
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+
+int Thay_so_am(int* dia_chi_mang, int So_Luong)
+{
+	for (int i = 0; i < So_Luong; i++)
+	{
+		if (*(dia_chi_mang + i) < 0)
+		{
+			*(dia_chi_mang + i) = 0;
+		}
+	}
+}
+
+int main()
+{
+	int Arr[] = { 400,3,-10,5,90,-800 };
+	int So_Luong = sizeof(Arr) / sizeof(Arr[0]);
+	Thay_so_am(Arr,So_Luong); ////////// chỉ thực hiện hàm chứ k thể gán
+
+	printf("Mang sau khi da chinh sua la: ");
+	for (int i = 0; i < So_Luong; i++)
+	{
+		printf(" %d ", Arr[i]);
+	}
+	return 0;
+}
+
 Bài 5: Xây dụng hàm. in ra các giá trị LẼ trong mảng arr
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+
+
+float Tim_so_le(int* dia_chi_Arr, int So_Luong)
+{
+	printf("Cac so le trong mang la: ");
+	for (int i = 0; i < So_Luong; i++)
+	{
+
+		if (*(dia_chi_Arr + i) % 2 != 0)
+		{
+			printf(" %d ", *(dia_chi_Arr + i));
+		}
+	}
+}
+
+int main()
+{
+	int Arr[] = { 4,3,5,6,9,11,10,39 };
+	int So_Luong = sizeof(Arr) / sizeof(Arr[0]);
+	Tim_so_le(Arr, So_Luong);
+	return 0;
+}
+
 Bài 6: Xây dụng hàm. in ra các giá trị là số nguyên tố trong mảng arr
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+
+//Bài 6: Xây dụng hàm. in ra các giá trị là số nguyên tố trong mảng arr
+
+int SoNguyenTo(int n)
+{
+	if (n < 2){return 0;}
+
+	for (int i = 2; i < n; i++)
+	{
+		if (n % i == 0) {return 0;}
+	}
+	return 1;
+}
+// n sẽ được gán thanh *(dia_chi_mang + i) de kiem tra lan luot 
+// cac gia tri trong mang co phai so nt
+
+int InSoNT(int* dia_chi_mang, int Soluong)
+{
+	printf("Cac so Nguyen to trong mang la: ");
+	for (int i = 0; i < Soluong; i++)
+	{
+		if (SoNguyenTo(*(dia_chi_mang + i)))
+		{
+			printf(" %d ", *(dia_chi_mang + i));
+		}
+	}
+	printf("\r\n");
+}
+int main()
+{
+	int Arr[] = { 4,3,5,11,10,101 };
+	int So_Luong = sizeof(Arr) / sizeof(Arr[0]);
+	InSoNT(Arr, So_Luong);
+	return 0;
+}
+
 Bài 7: Xây dựng hàm. in ra giá trị lớn nhất trong mảng arr
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+
+int So_Lon_Nhat_Mang(int* dia_chi_mang, int So_Luong, int* Vi_Tri_Max)
+{
+	int Max = 0;
+	for (int i = 0; i < So_Luong; i++)
+	{
+		if (*(dia_chi_mang + i) > Max)
+		{
+			Max = *(dia_chi_mang + i);
+			*Vi_Tri_Max = i;
+		}
+	}
+	return Max;
+}
+
+int main()
+{
+	int Arr[] = { 400,3,10,5,90,800 };
+	int So_Luong = sizeof(Arr) / sizeof(Arr[0]);
+	int Vi_Tri_Max;
+	int result = So_Lon_Nhat_Mang(Arr,So_Luong,&Vi_Tri_Max);
+
+	printf("Gia tri lon nhat trong mang la: %d, o vi tri thu: %d \r\n", result, Vi_Tri_Max);
+	return 0;
+}
+
 Bai 8: Viet Ham Hoan Vi 2 so nguyen
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+
+//Bai 8: Viet Ham Hoan Vi 2 so nguyen
+
+int HoanViSoNguyen(int* a, int* b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+	printf("a = %d\r\n", *a);
+	printf("b = %d\r\n", *b);
+}
+int main()
+{
+	int c = 8;
+	int d = 11;
+	HoanViSoNguyen(&c, &d); /// int* a = &c  -> gán ĐỊA CHỈ c vao GIÁ TRỊ a 
+	return 0;			///   int temp = *a  -> truy cập vào -giá trị- a(địa chỉ c) và coi đó là DIA CHI
+	///                     lấy GIÁ TRỊ tại DIA CHI đó gán vào temp
+}
+
+
 Bài 9: Xây dựng hàm. Sắp xếp mảng arr theo giá trị tăng dần
